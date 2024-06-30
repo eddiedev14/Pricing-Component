@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --purple: hsl(237, 63%, 64%);
+    --linear-gradient: hsl(236, 72%, 79%),hsl(237, 63%, 64%);
+    --very-light-grayish-blue: hsl(240, 78%, 98%);
+    --light-grayish-blue: hsl(234, 14%, 74%);
+    --grayish-blue: hsl(233, 13%, 49%);
+    --dark-grayish-blue: hsl(232, 13%, 33%);
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    background-color: var(--very-light-grayish-blue);
+    background: url("../images/bg-top.svg") top right -100px/200px no-repeat;
+    display: flex;
+    justify-content: center;
+}
+
+.main{
+    width: 100%;
+    max-width: 1050px;
+    margin: 70px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+}
+
+.main__title{
+    color: var(--dark-grayish-blue);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.main__toggle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.main__label{
+    font-size: 0.785em;
+    color: var(--grayish-blue);
+    font-weight: 700;
+}
+
+.main__checkbox{
+    appearance: none;
+    width: 60px;
+    height: 32px;
+    background-image: linear-gradient(var(--linear-gradient));
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    transition: .3s ease-in-out opacity;
+}
+
+.main__checkbox:hover, .main__checkbox:focus{
+    opacity: 0.6;
+}
+
+.main__checkbox::after{
+    content: '';
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 4px;
+    left: 5px;
+    transition: .3s ease-in-out left;
+}
+
+.main__checkbox:checked::after{
+    left: 30px;
+}
+
+.main__cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.main__card{
+    width: 340px;
+    padding: 35px 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main__card:nth-child(2){
+    background-image: linear-gradient(var(--linear-gradient));
+    color: #fff;
+}
+
+.main__type{
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    color: var(--grayish-blue);
+}
+
+.main__card:nth-child(2) .main__type{
+    color: #fff;
+}
+
+.main__price{
+    font-size: 3.3em;
+    font-weight: 800;
+    color: var(--dark-grayish-blue);
+    margin-bottom: 20px;
+}
+
+.main__price::first-letter{
+    font-size: 0.6em;
+}
+
+.main__card:nth-child(2) .main__price{
+    color: #fff;
+}
+
+.main__list{
+    width: 100%;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid var(--light-grayish-blue);
+    border-bottom: 1px solid var(--light-grayish-blue);
+    margin-bottom: 30px;
+}
+
+.main__item{
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.main__item{
+    border-bottom: 1px solid var(--light-grayish-blue);
+}
+
+.main__item:last-child{
+    border: none;
+}
+
+.main__cta{
+    width: 100%;
+    padding: 15px 0px;
+    border-radius: 5px;
+    background-image: linear-gradient(var(--linear-gradient));
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.875em;
+    text-align: center;
+    transition: .3s ease-in-out background, .3s ease-in-out border;
+    border: 1px solid transparent;
+}
+
+.main__cta:focus-visible{
+    outline: none;
+}
+
+.main__cta:hover, .main__cta:focus{
+    background-color: #fff;
+    background-image: none;
+    color: var(--purple);
+    border: 1px solid var(--purple);
+}
+
+.main__card:nth-child(2) .main__cta{
+    background-image: none;
+    background-color: #fff;
+    color: var(--purple);
+}
+
+.main__card:nth-child(2) .main__cta:hover, .main__card:nth-child(2) .main__cta:focus{
+    background-color: transparent;
+    border-color: #fff;
+    color: #fff;
+}
+
+/* Desktop */
+
+@media screen and (min-width: 1050px) {
+    body{
+        background: url("../images/bg-top.svg") top right/300px no-repeat, url("../images/bg-bottom.svg") bottom left/250px no-repeat; 
+    }
+
+    .main__title{
+        font-size: 2em;
+    }
+
+    .main__label{
+        font-size: 1em;
+    }
+
+    .main__cards{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+    }
+
+    .main__card:nth-child(2){
+        padding: 60px 30px;
+    }
+
+    .main__type{
+        font-size: 1.2em;
+    }
+
+    .main__price{
+        font-size: 4em;
+    }
+}
